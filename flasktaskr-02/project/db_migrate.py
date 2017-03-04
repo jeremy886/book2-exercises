@@ -14,7 +14,7 @@ with sqlite3.connect(DATABASE_PATH) as connection:
 
     # temporarily change the name of tasks table
     c.execute("""ALTER TABLE tasks RENAME TO old_tasks""")
-
+    connection.commit()
     # recreate a new tasks table with updated schema
     db.create_all()
 
